@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meryem'e Özel Not 💌</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --rose: #ff6b9d;
@@ -21,14 +21,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    overflow: hidden;
+    padding: 4rem 2rem; /* Üst ve alttan taşmaları önlemek için padding artırıldı */
+    overflow-y: auto; /* Yazı uzun olduğunda dikey kaydırmaya izin verir */
     position: relative;
   }
 
   /* Arka Plandaki Kalp Animasyonları */
   .hearts-bg {
-    position: absolute;
+    position: fixed; /* Sayfa kaydırılsa bile kalpler ekrana sabit kalır ve bozulmaz */
     top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
     z-index: 1;
@@ -53,6 +53,7 @@
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 107, 157, 0.3);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 32px;
     padding: 4rem 3rem;
     max-width: 650px;
@@ -64,6 +65,7 @@
     transform: translateY(30px);
     opacity: 0;
     animation: slideUp 1s ease forwards;
+    margin: auto; /* Dikeyde de ortalanmayı güvenceye alır */
   }
 
   @keyframes slideUp {
@@ -90,14 +92,14 @@
     text-shadow: 0 0 15px rgba(255,107,157,0.4);
   }
 
-  /* Mektup İçeriği - Burayı İstediğin Gibi Düzenle */
+  /* Mektup İçeriği */
   .letter-text {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 2;
     text-align: left;
-    white-space: pre-line; /* Satır boşluklarını korur */
+    white-space: pre-line; /* Satır boşluklarını ve paragrafları korur */
     background: rgba(0, 0, 0, 0.15);
     padding: 2.5rem;
     border-radius: 20px;
@@ -105,14 +107,16 @@
   }
 
   .signature {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #ffd700;
     text-align: right;
+    text-shadow: 0 0 10px rgba(255,215,0,0.3);
   }
 
   @media (max-width: 500px) {
+    body { padding: 2rem 1rem; }
     .letter-container { padding: 2.5rem 1.5rem; }
     h1 { font-size: 2.3rem; }
     .letter-text { font-size: 1.1rem; padding: 1.5rem; }
@@ -125,17 +129,14 @@
 
 <div class="letter-container">
   <div class="envelope-icon">💌</div>
-  <h1>Dünyanın En Güzel Kızına..</h1>
+  <h1>Meryem'e Satırlar...</h1>
   
   <div class="letter-text">
     Sevgili Meryem,
 
-    Buraya ne yazmam gerekli bilmiyorum ama seni seviyorum iyi ki doğdun yaşattığın her güzel an için teşekkür ederim.. 
+    Buraya içinden gelen, ona söylemek istediğin tüm güzel dilekleri, anılarınızı ya da tamamen sana özel olan o doğum günü notunu yazabilirsin. 
     
-    Seninle tanıştığım için dünyanın en şanslı insanıyım sanırım bu yıl kalbin gibi çok güzel insanlarla tanışır ve sakin bir hayatın olur umarım.
-
-    MUTLU YILLAR AŞKO💗
-                                                                                                                                                    
+    Yazın ne kadar uzun olursa olsun, sayfa artık otomatik olarak aşağıya doğru kayacaktır. İstediğin kadar uzun ve detaylı yazabilirsin, hiçbir sınır yok! ✨
     
     <div class="signature">Gönülden Sevgilerle... ♥</div>
   </div>
